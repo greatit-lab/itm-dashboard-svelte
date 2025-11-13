@@ -1,0 +1,149 @@
+/* Tailwind v4 core import */
+@import "tailwindcss";
+
+/* ------------------------------------
+   🌈 글로벌 컬러 시스템 (Light Mode)
+------------------------------------ */
+:root {
+    --bg: #f5f6fa;
+    --text: #1c1d1f;
+
+    --card-bg: #ffffff;
+    --border-color: #e0e3e7;
+
+    --primary: #00695c;
+    --primary-light: #26a69a;
+    --danger: #d32f2f;
+    --warning: #fbc02d;
+
+    --sidebar-bg: #0f766e;
+    --sidebar-text: #ffffff;
+
+    --kpi-shadow: 0 10px 30px rgba(0,0,0,0.08), 
+                  0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* ------------------------------------
+   🌙 Dark Mode
+------------------------------------ */
+.dark {
+    --bg: #111418;
+    --text: #e5e7eb;
+
+    --card-bg: #1b1f24;
+    --border-color: #33393f;
+
+    --sidebar-bg: #0f766e;
+    --sidebar-text: #ffffff;
+
+    --kpi-shadow: 0 10px 30px rgba(255,255,255,0.12),
+                  0 4px 8px rgba(255,255,255,0.08);
+}
+
+/* ------------------------------------
+   🖥 기반 스타일
+------------------------------------ */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    @apply font-sans overflow-hidden;
+}
+
+/* ------------------------------------
+   📦 카드 (전역)
+------------------------------------ */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    @apply rounded-xl p-5 shadow-sm transition;
+}
+
+/* ------------------------------------
+   🏷 섹션 제목
+------------------------------------ */
+.section-title {
+    @apply text-lg font-semibold mb-3;
+}
+
+/* ------------------------------------
+   📊 테이블
+------------------------------------ */
+.table {
+    @apply w-full text-sm border-collapse;
+}
+
+.table th {
+    @apply text-left py-3 border-b border-[var(--border-color)] font-semibold;
+}
+
+.table td {
+    @apply py-3 border-b border-[var(--border-color)];
+}
+
+/* ------------------------------------
+   🔰 상태 배지
+------------------------------------ */
+.badge-online {
+    @apply bg-green-100 text-green-700 px-2 py-1 rounded-md text-xs;
+}
+
+.badge-offline {
+    @apply bg-red-100 text-red-700 px-2 py-1 rounded-md text-xs;
+}
+
+.badge-unknown {
+    @apply bg-gray-100 text-gray-600 px-2 py-1 rounded-md text-xs;
+}
+
+/* ------------------------------------
+   📈 KPI 카드
+------------------------------------ */
+.kpi-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--kpi-shadow);
+    @apply rounded-xl p-5 flex flex-col gap-1 transition cursor-pointer backdrop-blur-sm;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    @apply shadow-lg;
+}
+
+.kpi-value {
+    @apply text-3xl font-bold;
+}
+
+.kpi-label {
+    @apply text-sm opacity-75;
+}
+
+/* ------------------------------------
+   📊 Sparkline (미니 그래프)
+------------------------------------ */
+.sparkline path {
+    stroke: var(--primary);
+    stroke-width: 2;
+    fill: none;
+}
+
+/* ------------------------------------
+   🟩 CPU/MEM BAR
+------------------------------------ */
+.cpu-bar {
+    background: rgba(34,197,94,0.2);
+    @apply h-2 rounded-l-md;
+}
+
+.mem-bar {
+    background: rgba(59,130,246,0.2);
+    @apply h-2 rounded-l-md;
+}
+
+/* ------------------------------------
+   🧱 Cards Grid, Layout Helpers
+------------------------------------ */
+.grid-cards {
+    @apply grid grid-cols-4 gap-6;
+}
+
